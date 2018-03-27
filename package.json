@@ -1,0 +1,24 @@
+{
+  "name": "node-api-crud",
+  "version": "1.0.0",
+  "description": "CRUD API Restful using node + express + mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --report spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagofrancisquete/CRUD-API-Restful"
+  },
+  "keywords": [
+    "node.js",
+    "API",
+    "CRUD"
+  ],
+  "author": "thiagofrancisquete",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thiagofrancisquete/CRUD-API-Restful/issues"
+  },
+  "homepage": "https://github.com/thiagofrancisquete/CRUD-API-Restful#readme"
+}
