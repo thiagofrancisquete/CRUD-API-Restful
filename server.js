@@ -2,6 +2,11 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+// conectando o mongoose
+mongoose.connect('mongodb://<crud-api-restful>:<thiago123>@ds014648.mlab.com:14648/node-crud-api');
+
 
 //configuracao da variavel app para o body-parser
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -24,4 +29,3 @@ app.use('/api', router);
 // iniciando a aplicação
 app.listen(port);
 console.log('iniciando a app na porta ' + port);
-
