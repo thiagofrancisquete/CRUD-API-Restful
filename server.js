@@ -49,7 +49,7 @@ router.route('/produtos').post(function(req, res){
   produto.save(function(error){
     if(error)
       res.send('Erro ao tentar salvar o produto ' +error);
-    res.json({ message: 'Produto cadastrado com sucesso!'})
+    res.json({ message: 'Produto cadastrado com sucesso!'});
   })
 })
 
