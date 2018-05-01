@@ -39,7 +39,19 @@ router.get('/', function (req, res) {
 });
 
 /* APIS */
+router.route('/produtos').post(function(req, res){
+  var produto = new produto();
 
+  produto.nome = req.body.nome;
+  produto.preco = req.body.preco;
+  produto.descricao = req.body.descricao;
+
+  produto.save(function(error){
+    if(error)
+      res.send('Erro ao tentar salvar o produto ' +error);
+    res.json({ message: 'Produto cadastrado com sucesso!'})
+  })
+})
 
 
 /* definindo um padrao das rotas prefixadas com '/api' */
