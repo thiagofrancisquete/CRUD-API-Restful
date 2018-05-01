@@ -56,6 +56,5 @@ router.route('/produtos').post(function(req, res){
 /* definindo um padrao das rotas prefixadas com '/api' */
 app.use('/api', router);
 
-/* iniciando a aplicação */
 app.listen(port);
 console.log('iniciando a app na porta ' + port);
