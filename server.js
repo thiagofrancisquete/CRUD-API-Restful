@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var produto = require('./app/models/produto');
+var Produto = require('./app/models/produto');
 
 /* conectando o mlab (cloud) */
 mongoose.connect('mongodb://crud-api-restful:thiago123@ds014648.mlab.com:14648/node-crud-api');
@@ -40,11 +40,11 @@ router.get('/', function (req, res) {
 
 /* APIS */
 router.route('/produtos').post(function(req, res){
-  var produto = new produto();
+  var produto = new Produto();
 
   produto.nome = req.body.nome;
   produto.preco = req.body.preco;
-  produto.descricao = req.body.descricao;
+  produto.desc = req.body.desc;
 
   produto.save(function(error){
     if(error)
@@ -52,7 +52,6 @@ router.route('/produtos').post(function(req, res){
     res.json({ message: 'Produto cadastrado com sucesso!'});
   })
 })
-
 
 /* definindo um padrao das rotas prefixadas com '/api' */
 app.use('/api', router);
