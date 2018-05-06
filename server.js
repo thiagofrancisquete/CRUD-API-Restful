@@ -53,14 +53,26 @@ router.route('/produtos').post(function(req, res){
   })
 })
 
-// selecionar todos os produtos, acessar em GET http://localhost:8080/api/produtos
+// selecionar todos os produtos, acessar em GET http://localhost:8000/api/produtos
   .get(function(req, res){
     Produto.find(function(error, produtos){
       if(error)
-        res.send("erro ao tentar selecionar todos os produtos " + erro);
+        res.send("erro ao tentar selecionar todos os produtos " + error);
       res.json(produtos);
     })
   })
+
+ // rotas que irão terminar em '/produtos/produto_id' 
+router.route('/produtos/:produto_id')
+
+// selecionar por id (http://localhost:8000/api/produtos/produto_id)
+.get(function(req, res){
+  Produto.findById(req.params.produto_id, function(error, produto){
+    if(error)
+      res.send('Id do produto nao encontrado ' +error)
+    res.json(produto)
+  })
+})
 
 /* definindo um padrao das rotas prefixadas com '/api' */
 app.use('/api', router);
