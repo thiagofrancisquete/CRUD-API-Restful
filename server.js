@@ -11,7 +11,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://crud-api-restful:thiago123@ds014648.mlab.com:14648/node-crud-api');
 
 /* conectando local
-mongoose.connect('mongodb://localhost/nome-da-api)
+mongoose.connect('mongodb://localhost:27017/nome-da-api, {
+  useMongoClient: true
+})
 */
 
 /* configuracao da variavel app para o body-parser */
