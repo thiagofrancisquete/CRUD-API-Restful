@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Produto = require('./app/models/produto');
 
+mongoose.Promise = global.Promise;
+
 /* conectando o mlab (cloud) */
 mongoose.connect('mongodb://crud-api-restful:thiago123@ds014648.mlab.com:14648/node-crud-api');
 
@@ -39,6 +41,8 @@ router.get('/', function (req, res) {
 });
 
 /* APIS */
+
+// metodo POST
 router.route('/produtos').post(function(req, res){
   var produto = new Produto();
 
@@ -71,6 +75,27 @@ router.route('/produtos/:produto_id')
     if(error)
       res.send('Id do produto nao encontrado ' +error)
     res.json(produto)
+  })
+})
+
+// metodo PUT para atualização
+.put(function(req, res){
+  // achar o id do produto
+  produto.findById(req.params.produto_id, function(error, produto){
+    if(error)
+      res.send('Id do produto nao encontrado ' +error)
+      
+      // atualizando os dados
+      produto.nome = req.body.nome;
+      produto.preco = req.body.preco;
+      produto.descricao = req.body.descricao;
+
+      // salvando as propriedades
+      produto.save(function(error){
+        if(error)
+          res.send('Erro au atualizar o produto ' +error);
+        res.json({ message: 'Produto atualizado com sucesso'})
+      })
   })
 })
 
