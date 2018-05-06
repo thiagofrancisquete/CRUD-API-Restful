@@ -53,6 +53,15 @@ router.route('/produtos').post(function(req, res){
   })
 })
 
+// selecionar todos os produtos, acessar em GET http://localhost:8080/api/produtos
+  .get(function(req, res){
+    Produto.find(function(error, produtos){
+      if(error)
+        res.send("erro ao tentar selecionar todos os produtos " + erro);
+      res.json(produtos);
+    })
+  })
+
 /* definindo um padrao das rotas prefixadas com '/api' */
 app.use('/api', router);
 
