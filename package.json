@@ -4,7 +4,7 @@
   "description": "CRUD API Restful using node + express + mongodb",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --report spec"
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
