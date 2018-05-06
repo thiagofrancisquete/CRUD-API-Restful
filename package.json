@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/thiagofrancisquete/CRUD-API-Restful/issues"
   },
-  "homepage": "https://github.com/thiagofrancisquete/CRUD-API-Restful#readme"
+  "homepage": "https://github.com/thiagofrancisquete/CRUD-API-Restful#readme",
+  "devDependencies": {
+    "nodemon": "1.17.4"
+  }
 }
